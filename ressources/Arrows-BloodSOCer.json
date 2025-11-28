@@ -238,7 +238,7 @@
         "x": 308.25,
         "y": -379.8091091910285
       },
-      "caption": "ART 44",
+      "caption": "ART 52",
       "labels": [],
       "properties": {},
       "style": {
@@ -409,11 +409,11 @@
     },
     {
       "id": "n25",
-      "type": "TestedBy",
-      "style": {},
-      "properties": {},
       "fromId": "n7",
-      "toId": "n21"
+      "toId": "n21",
+      "type": "TestedBy",
+      "properties": {},
+      "style": {}
     }
   ]
 }
