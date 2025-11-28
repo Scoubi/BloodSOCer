@@ -1,0 +1,1 @@
+{"query":"match p=shortestpath((s:TA_Group)-[*1..]-\u003e(t))\nwhere s\u003c\u003et and t.name contains \"POTAM\"\nreturn s","name":"List Threat Actors Known to use PetitPotam","description":""}

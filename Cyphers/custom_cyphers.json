@@ -1,0 +1,7 @@
+[
+ {"query":"match p=shortestpath((s:TA_Group)-[*1..]-\u003e(t:Tactic))\nwhere s.name = \"FIN7\"\nreturn p","name":"Tactics used by FIN7","description":""},
+ {"query":"match p=(s:TA_Group)-[*1..5]-\u003e(t:Playbook)\nwhere s.name = \"FIN7\"\nreturn p","name":"Playbooks that apply to FIN7 Tradecraft","description":""},
+ {"query":"match p=shortestpath((s:TA_Group)-[*1..]-\u003e(t:SigmaRule))\nwhere s.name = \"FIN7\" and t.name contains \"MIMIKATZ\"\nreturn p","name":"Sigma Rules detecting FIN7's usage of Mimikatz","description":""},
+ {"query":"match p=shortestpath((s:TA_Group)-[*1..]-\u003e(t))\nwhere s\u003c\u003et and t.name contains \"POTAM\"\nreturn s","name":"List Threat Actors Known to use PetitPotam","description":""},
+ {"query":"match p=(:Technique)-[:DetectedBy|TestedBy]-\u003e(x)\nwhere x.name contains \"MIMIKATZ\"\nreturn p","name":"Detections and Test for Mimikatz","description":""}
+]

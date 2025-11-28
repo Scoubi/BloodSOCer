@@ -1,0 +1,419 @@
+{
+  "style": {
+    "font-family": "sans-serif",
+    "background-color": "#FAFCFF",
+    "background-image": "",
+    "background-size": "100%",
+    "node-color": "#4C8EDA",
+    "border-width": 2,
+    "border-color": "#2870c2",
+    "radius": 25,
+    "node-padding": 5,
+    "node-margin": 2,
+    "outside-position": "auto",
+    "node-icon-image": "",
+    "node-background-image": "",
+    "icon-position": "inside",
+    "icon-size": 64,
+    "caption-position": "inside",
+    "caption-max-width": 200,
+    "caption-color": "#ffffff",
+    "caption-font-size": 10,
+    "caption-font-weight": "normal",
+    "label-position": "outside",
+    "label-display": "bare",
+    "label-color": "#ffffff",
+    "label-background-color": "#4C8EDA",
+    "label-border-color": "#4C8EDA",
+    "label-border-width": 0,
+    "label-font-size": 10,
+    "label-padding": 2,
+    "label-margin": 2,
+    "directionality": "directed",
+    "detail-position": "inline",
+    "detail-orientation": "parallel",
+    "arrow-width": 1,
+    "arrow-color": "#A5ABB6",
+    "margin-start": 0,
+    "margin-end": 0,
+    "margin-peer": 20,
+    "attachment-start": "normal",
+    "attachment-end": "normal",
+    "relationship-icon-image": "",
+    "type-color": "#000000",
+    "type-background-color": "#ffffff",
+    "type-border-color": "#000000",
+    "type-border-width": 0,
+    "type-font-size": 10,
+    "type-padding": 2,
+    "property-position": "outside",
+    "property-alignment": "colon",
+    "property-color": "#000000",
+    "property-font-size": 10,
+    "property-font-weight": "normal"
+  },
+  "nodes": [
+    {
+      "id": "n0",
+      "position": {
+        "x": -279,
+        "y": -3
+      },
+      "caption": "APT32",
+      "labels": [],
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n2",
+      "position": {
+        "x": -83.25,
+        "y": -3
+      },
+      "caption": "Mimikatz",
+      "labels": [],
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n3",
+      "position": {
+        "x": 112.5,
+        "y": -3
+      },
+      "caption": "OS Credential Dumping",
+      "labels": [],
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n4",
+      "position": {
+        "x": 112.5,
+        "y": 160.22352119671007
+      },
+      "caption": "Credential Access",
+      "labels": [],
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n5",
+      "position": {
+        "x": -83.25,
+        "y": -153.77647880328993
+      },
+      "caption": "Cobalt Strike",
+      "labels": [],
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n6",
+      "position": {
+        "x": -279,
+        "y": -153.77647880328993
+      },
+      "caption": "FIN7",
+      "labels": [],
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n7",
+      "position": {
+        "x": 112.5,
+        "y": -153.77647880328996
+      },
+      "caption": "Protocol Tunneling",
+      "labels": [],
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n8",
+      "position": {
+        "x": 112.5,
+        "y": -349.52647880328993
+      },
+      "caption": " Command and Control ",
+      "labels": [],
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n9",
+      "position": {
+        "x": 308.25,
+        "y": 147.77647880329
+      },
+      "caption": "Detectio 78",
+      "labels": [],
+      "properties": {},
+      "style": {
+        "node-color": "#e27300"
+      }
+    },
+    {
+      "id": "n10",
+      "position": {
+        "x": 308.25,
+        "y": 0
+      },
+      "caption": "Detection 12",
+      "labels": [],
+      "properties": {},
+      "style": {
+        "node-color": "#e27300"
+      }
+    },
+    {
+      "id": "n11",
+      "position": {
+        "x": 489.5442099961419,
+        "y": -73.88823940164501
+      },
+      "caption": "Playbook A",
+      "labels": [],
+      "properties": {},
+      "style": {
+        "node-color": "#68bc00"
+      }
+    },
+    {
+      "id": "n12",
+      "position": {
+        "x": 308.25,
+        "y": -153.77647880328996
+      },
+      "caption": "Detection 33",
+      "labels": [],
+      "properties": {},
+      "style": {
+        "node-color": "#e27300"
+      }
+    },
+    {
+      "id": "n13",
+      "position": {
+        "x": 308.25,
+        "y": -266.7927939971592
+      },
+      "caption": "Detection 35",
+      "labels": [],
+      "properties": {},
+      "style": {
+        "node-color": "#e27300"
+      }
+    },
+    {
+      "id": "n18",
+      "position": {
+        "x": 308.25,
+        "y": 371.15250691072157
+      },
+      "caption": "ART 44",
+      "labels": [],
+      "properties": {},
+      "style": {
+        "node-color": "#d33115"
+      }
+    },
+    {
+      "id": "n19",
+      "position": {
+        "x": 308.25,
+        "y": 259.4644928570058
+      },
+      "caption": "ART 1",
+      "labels": [],
+      "properties": {},
+      "style": {
+        "node-color": "#d33115"
+      }
+    },
+    {
+      "id": "n21",
+      "position": {
+        "x": 308.25,
+        "y": -379.8091091910285
+      },
+      "caption": "ART 44",
+      "labels": [],
+      "properties": {},
+      "style": {
+        "node-color": "#d33115"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "n0",
+      "fromId": "n0",
+      "toId": "n2",
+      "type": "Uses",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n1",
+      "fromId": "n2",
+      "toId": "n3",
+      "type": "Exploits",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n2",
+      "fromId": "n3",
+      "toId": "n4",
+      "type": "PartOf",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n3",
+      "fromId": "n4",
+      "toId": "n3",
+      "type": "HaveTTP",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n4",
+      "fromId": "n0",
+      "toId": "n5",
+      "type": "Uses",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n5",
+      "fromId": "n6",
+      "toId": "n5",
+      "type": "Uses",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n6",
+      "fromId": "n5",
+      "toId": "n7",
+      "type": "Exploits",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n7",
+      "fromId": "n5",
+      "toId": "n3",
+      "type": "Exploits",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n8",
+      "fromId": "n7",
+      "toId": "n8",
+      "type": "PartOf",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n9",
+      "fromId": "n8",
+      "toId": "n7",
+      "type": "HaveTTP",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n10",
+      "fromId": "n3",
+      "toId": "n9",
+      "type": "DetectedBy",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n11",
+      "fromId": "n3",
+      "toId": "n10",
+      "type": "DetectedBy",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n12",
+      "fromId": "n9",
+      "toId": "n11",
+      "type": "InvestigateWith",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n13",
+      "fromId": "n10",
+      "toId": "n11",
+      "type": "InvestigateWith",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n14",
+      "fromId": "n7",
+      "toId": "n12",
+      "type": "DetectedBy",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n15",
+      "fromId": "n7",
+      "toId": "n13",
+      "type": "DetectedBy",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n16",
+      "fromId": "n12",
+      "toId": "n11",
+      "type": "InvestigateWith",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n17",
+      "fromId": "n13",
+      "toId": "n11",
+      "type": "InvestigateWith",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n23",
+      "fromId": "n3",
+      "toId": "n18",
+      "type": "TestedBy",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n24",
+      "fromId": "n3",
+      "toId": "n19",
+      "type": "TestedBy",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n25",
+      "type": "TestedBy",
+      "style": {},
+      "properties": {},
+      "fromId": "n7",
+      "toId": "n21"
+    }
+  ]
+}

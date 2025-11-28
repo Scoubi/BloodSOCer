@@ -1,0 +1,2 @@
+httpx>=0.23.0
+blood-hound-python-client>=1.0.5

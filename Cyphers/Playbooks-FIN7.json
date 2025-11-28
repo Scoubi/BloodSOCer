@@ -1,0 +1,1 @@
+{"query":"match p=(s:TA_Group)-[*1..5]-\u003e(t:Playbook)\nwhere s.name = \"FIN7\"\nreturn p","name":"Playbooks that apply to FIN7 Tradecraft","description":""}

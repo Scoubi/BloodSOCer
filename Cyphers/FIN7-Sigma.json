@@ -1,0 +1,1 @@
+{"query":"match p=shortestpath((s:TA_Group)-[*1..]-\u003e(t:Rule))\nwhere s.name = \"FIN7\" and t.name contains \"MIMIKATZ\"\nreturn p","name":"Sigma Rules detecting FIN7's usage of Mimikatz","description":""}
