@@ -2,22 +2,55 @@
 
 import json
 import re
+import urllib.error
 import urllib.request
 from datetime import datetime
 from BloodSOCer import OUTPUT_DIR
 import os
 
-INPUT_URL = "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/master/enterprise-attack/enterprise-attack-17.1.json"
+GITHUB_COMMITS_URL = (
+    "https://api.github.com/repos/mitre-attack/attack-stix-data/commits"
+    "?path=enterprise-attack/enterprise-attack.json&per_page=1"
+)
+RAW_BASE_URL = "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/master/enterprise-attack/enterprise-attack.json"
+
 RESOURCES_DIR = os.path.join(os.path.dirname(__file__), "ressources")
 os.makedirs(RESOURCES_DIR, exist_ok=True)
-INPUT_FILENAME = "enterprise-attack-17.1.json"
-INPUT_FILE = os.path.join(RESOURCES_DIR, INPUT_FILENAME)
 OUTPUT_FILE = "mitrehound_graph.json"
 
+
+def latest_version_info():
+    """
+    Fetch the latest enterprise-attack.json commit message to derive the version.
+    Returns (download_url, version_string, filename).
+    """
+    version = "latest"
+    try:
+        req = urllib.request.Request(GITHUB_COMMITS_URL, headers={"User-Agent": "BloodSOCer"})
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+            if data:
+                message = data[0].get("commit", {}).get("message", "") or ""
+                match = re.search(r"v?(\d+\.\d+(?:\.\d+)?)", message)
+                if match:
+                    version = match.group(1)
+    except Exception:
+        # Fallback to "latest" if version lookup fails
+        pass
+
+    filename = f"enterprise-attack-{version}.json" if version != "latest" else "enterprise-attack-latest.json"
+    return RAW_BASE_URL, version, os.path.join(RESOURCES_DIR, filename)
+
+
 def download_file():
-    print("⬇️  Downloading MITRE Enterprise STIX JSON...")
-    urllib.request.urlretrieve(INPUT_URL, INPUT_FILE)
-    print(f"✅ Downloaded to '{INPUT_FILE}'")
+    url, version, path = latest_version_info()
+    print(f"⬇️  Downloading MITRE Enterprise STIX JSON (version: {version})...")
+    try:
+        urllib.request.urlretrieve(url, path)
+        print(f"✅ Downloaded to '{path}'")
+    except urllib.error.URLError as exc:
+        raise RuntimeError(f"Failed to download MITRE data: {exc}") from exc
+    return path
 
 def extract_tactics(mitre_data):
     tactics = []
@@ -245,9 +278,9 @@ def extract_edges(mitre_data):
 
 def main():
     try:
-        download_file()
+        input_file = download_file()
 
-        with open(INPUT_FILE, "r", encoding="utf-8") as f:
+        with open(input_file, "r", encoding="utf-8") as f:
             mitre_data = json.load(f)
 
         nodes = extract_tactics(mitre_data)

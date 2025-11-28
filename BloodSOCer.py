@@ -8,11 +8,11 @@ from auth.hmac_authenticated_client import HMACAuthenticatedClient
 # ---------------------------------------------------------------------------
 # Configuration – set these before running
 # ---------------------------------------------------------------------------
-apikey = "<CHANGEME>"
-apiid = "<CHANGEME>"
+apikey = "+10OLyaYUOrMWcmWfJxhM4gxA0ihw3T5iMcsg0ljBXgdqctn94T4Mw=="
+apiid = "27ea688f-1e61-4cab-9651-66242d742e68"
 
 # BloodHound base URL (used by HMAC client / uploads)
-url = "http://127.0.0.1:8080"
+url = "http://127.0.0.1:8585"
 
 # Directory where *_graph.json files are created (and where uploads will be read from)
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "output")
@@ -36,8 +36,8 @@ def require_credentials(action_name: str):
 
     print(f"[ERROR] Valid apiid/apikey required to {action_name}.")
     print("  Please edit this script and set 'apikey' and 'apiid' to real values.")
-    print("  For instructions on how to obtain API credentials,")
-    print("    see: https://bloodhound.specterops.io/integrations/bloodhound-api/working-with-api#authentication")
+    print("  For instructions on how to obtain API credentials, see:")
+    print("    https://bloodhound.specterops.io/integrations/bloodhound-api/working-with-api#authentication")
     sys.exit(1)
 
 
@@ -97,7 +97,6 @@ def run_sigmahound():
 
 def run_all_hounds():
     """Run define-icons and all hound scripts in sequence."""
-    run_define_icons()
     run_mitrehound()
     run_arthound()
     run_sigmahound()
@@ -107,6 +106,32 @@ def run_setup():
     """Run Define-Icons.py and UL-Cyphers.py in sequence."""
     run_define_icons()
     run_ul_cyphers()
+
+
+def clear_database():
+    """Call the BloodHound clear-database endpoint using HMAC credentials."""
+    try:
+        with HMACAuthenticatedClient(base_url=url, token_key=apikey, token_id=apiid) as client:
+            httpx_client = client.get_httpx_client()
+            payload = {
+                "deleteCollectedGraphData": True,
+                "deleteFileIngestHistory": True,
+                "deleteDataQualityHistory": True,
+                "deleteAssetGroupSelectors": [],
+            }
+            resp = httpx_client.post(
+                "/api/v2/clear-database",
+                json=payload,
+                headers={"Prefer": "0", "Accept": "text/plain"},
+                timeout=120.0,
+            )
+            if resp.status_code < 400:
+                print("✅ Database clear request sent successfully.")
+            else:
+                print(f"[ERROR] clear-database failed (status {resp.status_code}): {resp.text}")
+    except Exception as exc:
+        print(f"[ERROR] clear-database request failed: {exc}")
+        sys.exit(1)
 
 
 def upload_files(files):
@@ -202,6 +227,8 @@ def main():
             "  python3 BloodSOCer.py --define-icons\n\n"
             "  # run setup (define-icons and ul-cyphers)\n"
             "  python3 BloodSOCer.py --setup\n\n"
+            "  # clear the BloodHound database\n"
+            "  python3 BloodSOCer.py --clear-db\n\n"
             "  # run individual hounds\n"
             "  python3 BloodSOCer.py --mitre\n"
             "  python3 BloodSOCer.py --art\n"
@@ -219,6 +246,12 @@ def main():
         dest="defineicons",
         action="store_true",
         help="Run Define-Icons.py with the current API credentials",
+    )
+    parser.add_argument(
+        "-c", "--clear-db",
+        dest="clear_db",
+        action="store_true",
+        help="Clear the BloodHound database (requires valid API credentials)",
     )
     parser.add_argument(
         "-st", "--setup",
@@ -263,6 +296,11 @@ def main():
         return
 
     args = parser.parse_args()
+
+    if args.clear_db:
+        require_credentials("clear the database (--clear-db)")
+        clear_database()
+        return
 
     # upload-only switch
     if args.upload_only:
