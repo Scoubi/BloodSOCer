@@ -10,8 +10,11 @@ BloodSOCer is a Python automation tool that aggregates threat intelligence data 
 - **SigmaHound**: Fetch and process [Sigma](https://github.com/SigmaHQ/sigma) detection rules
 - **ARTHound**: Fetch and process [Atomic Red Team](https://github.com/redcanaryco/atomic-red-team) (ART) tests
 - **Define Icons**: Customize BloodHound icons for threat actors and techniques
+- **Saved Queries**: Import bundled Cypher queries into BloodHound via `UL-Cyphers.py` or `--setup`
 - **Batch Upload**: Upload generated JSON graphs to BloodHound with automatic ingest triggering
 - **Upload Only**: If you already have the files but want to import to a new BloodHound instance or cleared the database
+- **Clear Database**: Reset a BloodHound instance via API before a fresh import
+- **Setup Helper**: One flag to run icon updates and saved query import together
 - **CLI Interface**: Simple command-line arguments to run individual or all components
 
 ## Requirements
@@ -88,6 +91,12 @@ python3 BloodSOCer.py --all, -a
 ```bash
 python3 BloodSOCer.py --mitre --sigma --define-icons
 ```
+
+### Delete all data in the database
+```bash
+python3 BloodSOCer.py --clear-db
+```
+
 
 **NOTE**: For `--define-icons` and `--upload-only` an API Key and API Secret **must** be defined in `BloodSOCer.py`
 
