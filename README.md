@@ -6,7 +6,6 @@ BloodSOCer is a Python automation tool that aggregates threat intelligence data 
 
 ## Features
 
-- **MitreHound**: Fetch and process [Mitre ATT&CK](https://attack.mitre.org/) framework data (Threat Actors, Tactics, Techniques, Tools)
 - **SigmaHound**: Fetch and process [Sigma](https://github.com/SigmaHQ/sigma) detection rules
 - **ARTHound**: Fetch and process [Atomic Red Team](https://github.com/redcanaryco/atomic-red-team) (ART) tests
 - **Define Icons**: Customize BloodHound icons for threat actors and techniques
