@@ -1,0 +1,7 @@
+# Generated output
+/output/*.json
+
+# Upstream data sets
+/atomic-red-team/
+/sigma/
+/ressources/entreprise-attack*.json
