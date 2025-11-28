@@ -1,6 +1,6 @@
 # BloodSOCer
 
-![BloodSOCer Logo](./ressources/BloodSOCer.png)
+![BloodSOCer Logo](./resources/BloodSOCer.png)
 
 BloodSOCer is a Python automation tool that aggregates threat intelligence data from multiple sources ([Mitre ATT&CK](https://attack.mitre.org/), [Sigma rules](https://github.com/SigmaHQ/sigma), [Atomic Red Team](https://github.com/redcanaryco/atomic-red-team)) and produces JSON files to ingest in BloodHound in OpenGraph format. BloodSOCer can also upload the files to BloodHound and set the icons for the custom objects if it has API Tokens defined in the configuration. Security analysts can then visualize the data from any angle, and a few Cypher queries are provided to help you get started. 
 
@@ -161,6 +161,19 @@ This project adds the following edges/relationships
 
 To download the `json` file of this [Arrows.app](https://arrows.app/) graph click [here](./ressources/Arrows-BloodSOCer.json)
 
+## Example Output
+
+Detections for FIN7 using Mimikatz
+![FIN7 Mimikatz Detections](./resources/Cypher-1.png)
+
+Tactics used by FIN7
+![Playbooks Query](./resources/Cypher-2.png)
+
+Detection and Test for FIN7 activity
+![Playbooks Query](./resources/Cypher-3.png)
+
+Playbooks to investigate FIN7 & Scattered Spider activity
+![Playbooks Query](./resources/Cypher-4.png)
 
 ## Notes
 
@@ -168,6 +181,7 @@ To download the `json` file of this [Arrows.app](https://arrows.app/) graph clic
 - Ensure BloodHound API credentials are valid before running
 - All JSON graph files must be present in the current directory before uploading
 - Custom icons defined in `Define-Icons.py` will be applied to the BloodHound interface
+- This tool currently do not ingest any Playbooks
 
 ## License
 
