@@ -171,7 +171,7 @@ To download the `json` file of this [Arrows.app](https://arrows.app/) graph clic
 
 ## License
 
-[Your License Here]
+Apache 2.0
 
 ## Contributing
 
