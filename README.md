@@ -17,8 +17,14 @@ BloodSOCer is a Python automation tool that aggregates threat intelligence data 
 ## Requirements
 
 - Python 3.8+
-- BloodHound API credentials (Token ID and Token Key)
 - BloodHound server running (default: `http://127.0.0.1:8080`)
+
+## Optional
+- BloodHound API credentials (Token ID and Token Key)
+    - If you do not supply API Keys, BloodSOCer won't be able to
+        - U/L the data generated (but you can u/l it manually in the UI)
+        - Create the Custom Cyphers for this project (but you can u/l them manually in the UI)
+        - Set custom icons
 
 ## Installation
 
@@ -30,7 +36,7 @@ BloodSOCer is a Python automation tool that aggregates threat intelligence data 
 
 2. Install dependencies:
    ```bash
-   pip install -r requirements.txt
+   pip3 install -r requirements.txt
    ```
 
 3. Configure API credentials in `BloodSOCer.py`:
@@ -41,6 +47,11 @@ BloodSOCer is a Python automation tool that aggregates threat intelligence data 
 
 ## Usage
 
+### Just YOLO it
+```bash
+python3 BloodSOCer.py
+```
+
 ### Show help
 ```bash
 python3 BloodSOCer.py -h
@@ -49,8 +60,8 @@ python3 BloodSOCer.py -h
 ### Run individual hounds
 ```bash
 python3 BloodSOCer.py --mitre, -m
-python3 BloodSOCer.py --art, -r
 python3 BloodSOCer.py --sigma, -s
+python3 BloodSOCer.py --art, -r
 ```
 
 ### Run Define Icons
@@ -96,9 +107,12 @@ BloodSOCer/
 ├── ARTHound.py                # Atomic Red Team data fetcher
 ├── SigmaHound.py              # Sigma rules data fetcher
 ├── Define-Icons.py            # BloodHound icon customizer
+├── UL-Cyphers.py              # Upload custom Cyphers to help query ingested data
+├── Cyphers/                   # Saved queries (Cypher) JSONs
+├── ressources/                # Images/diagrams (Arrows graph, logo)
 ├── README.md                  # This file
 ├── requirements.txt           # Python dependencies
-└── UL-Cyphers.py              # Upload custom Cyphers to help query the data ingested via BloodSOCer
+└── output/                    # Generated *_graph.json files
 ```
 
 ## New Nodes and Edges 
