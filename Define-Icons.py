@@ -53,5 +53,5 @@ with client as client:
     define_icon("Technique", "newspaper", "#EFFC00")
     define_icon("Software", "microchip", "#0BD600")
     define_icon("TA_Group", "user-secret", "#A00505")
-    define_icon("Playbook", "clipboard-list", "#413AD0")
+    define_icon("Playbook", "clipboard-list", "#8400FF")
     define_icon("ART", "radiation", "#D6001C")
