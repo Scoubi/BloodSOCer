@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "source_kind": "PBBase"
+  },
+  "graph": {
+    "nodes": [
+      {
+        "id": "P0000001",
+        "kinds": ["Playbook"],
+        "properties": {
+          "name": "AD - Compromise Account",
+          "status": "Prod",
+          "description": "Detects the pattern of a pipe name as used by the hack tool EfsPotato",
+          "author": "Soubi",
+          "url": "https://gitlab.com/syntax-ir/playbooks/-/tree/main/IRP-AccountCompromised",
+          "date": "2021-08-23",
+          "modified": "2023-12-21"
+        }
+      },
+      {
+        "id": "P0000002",
+        "kinds": ["Playbook"],
+        "properties": {
+          "name": "Phishing Email",
+          "status": "Prod",
+          "description": "Detects the pattern of a pipe name as used by the hack tool EfsPotato",
+          "author": "Soubi",
+          "url": "https://gitlab.com/syntax-ir/playbooks/-/tree/main/IRP-Phishing",
+          "date": "2021-08-23",
+          "modified": "2023-12-21"
+        }
+      },
+      {
+        "id": "T1055",
+        "kinds": ["Technique"],
+        "properties": {
+          "name": "Process Injection"
+        }
+      },
+      {
+        "id": "T1003.003",
+        "kinds": ["Technique"],
+        "properties": {
+          "name": "LSASS Memory"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "kind": "InvestigateWith",
+        "start": {
+          "match_by": "id",
+          "value": "T1098",
+          "kind": "Technique"
+        },
+        "end": {
+          "match_by": "id",
+          "value": "P0000001",
+          "kind": "Playbook"
+        },
+        "properties": null
+      },
+      {
+        "kind": "InvestigateWith",
+        "start": {
+          "match_by": "id",
+          "value": "T1078",
+          "kind": "Technique"
+        },
+        "end": {
+          "match_by": "id",
+          "value": "P0000001",
+          "kind": "Playbook"
+        },
+        "properties": null
+      },
+      {
+        "kind": "InvestigateWith",
+        "start": {
+          "match_by": "id",
+          "value": "T1003.003",
+          "kind": "Technique"
+        },
+        "end": {
+          "match_by": "id",
+          "value": "P0000002",
+          "kind": "Playbook"
+        },
+        "properties": null
+      }
+    ]
+  }
+}
