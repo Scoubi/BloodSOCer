@@ -8,11 +8,11 @@ from auth.hmac_authenticated_client import HMACAuthenticatedClient
 # ---------------------------------------------------------------------------
 # Configuration – set these before running
 # ---------------------------------------------------------------------------
-apikey = "+10OLyaYUOrMWcmWfJxhM4gxA0ihw3T5iMcsg0ljBXgdqctn94T4Mw=="
-apiid = "27ea688f-1e61-4cab-9651-66242d742e68"
+apikey = "<CHANGEME>"
+apiid = "<CHANGEME>"
 
 # BloodHound base URL (used by HMAC client / uploads)
-url = "http://127.0.0.1:8585"
+url = "http://127.0.0.1:8080"
 
 # Directory where *_graph.json files are created (and where uploads will be read from)
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "output")
